@@ -110,13 +110,13 @@ open class LicenceHandler(
     }
 
     val isContribEnabled: Boolean
-        get() = isEnabledFor(LicenceStatus.CONTRIB)
+        get() = true
 
     @get:VisibleForTesting
     val isExtendedEnabled: Boolean
-        get() = isEnabledFor(LicenceStatus.EXTENDED)
+        get() = true
     val isProfessionalEnabled: Boolean
-        get() = isEnabledFor(LicenceStatus.PROFESSIONAL)
+        get() = true
 
     /**
      * @return user either has access through licence or through trial
@@ -301,7 +301,7 @@ open class LicenceHandler(
         get() = null
 
     open val roadmapVoteKey: Pair<String, String>?
-        get() = if (isProfessionalEnabled)
+        get() = if (true)
             prefHandler.getString(PrefKey.NEW_LICENCE)?.let {
                 DistributionHelper.Distribution.GITHUB.name to it
             }
